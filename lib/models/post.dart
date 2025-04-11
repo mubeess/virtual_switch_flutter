@@ -19,4 +19,12 @@ class Post {
       body: json['body'] ?? '',
     );
   }
+
+  bool containsSearchTerm(String searchTerm) {
+    final term = searchTerm.toLowerCase();
+    return title.toLowerCase().contains(term) ||
+        body.toLowerCase().contains(term) ||
+        id.toString().contains(term) ||
+        userId.toString().contains(term);
+  }
 }
